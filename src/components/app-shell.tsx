@@ -44,7 +44,9 @@ function Nav({ onNavigate }: { onNavigate?: () => void }) {
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const path = usePathname();
-  useEffect(() => setOpen(false), [path]);
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
 
   const sidebar = (
     <div className="flex h-full flex-col gap-6 p-4">

@@ -102,7 +102,9 @@ function Composer({ seg, onCancel, onSave }: { seg: Segment; onCancel: () => voi
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => ref.current?.scrollIntoView({ block: "nearest", behavior: "smooth" }), []);
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, []);
 
   const submit = async () => {
     if (!title.trim()) return setError("Add a title so you can find this later.");

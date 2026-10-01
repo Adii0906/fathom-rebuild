@@ -66,7 +66,9 @@ export function AskClient({ initialQuestion, autoRun }: { initialQuestion: strin
     }
   }, [autoRun, initialQuestion, ask]);
 
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth", block: "end" }), [turns]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [turns]);
 
   const busy = turns.some((t) => t.status === "loading");
   const submit = (e: React.FormEvent) => {

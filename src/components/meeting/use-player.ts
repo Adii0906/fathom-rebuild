@@ -33,7 +33,9 @@ export function usePlayer({ duration, audioUrl, segments, participants }: Option
   const useAudio = Boolean(audioUrl) && !audioFailed;
   const activeIndex = useMemo(() => activeIndexAt(segments, time), [segments, time]);
 
-  useEffect(() => setVoiceSupported("speechSynthesis" in window), []);
+  useEffect(() => {
+    setVoiceSupported("speechSynthesis" in window);
+  }, []);
 
   // Simulated clock
   useEffect(() => {
