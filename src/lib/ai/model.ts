@@ -4,11 +4,9 @@ import { AIError } from "./core/errors";
 import type { Complete } from "./core/json";
 
 /**
- * Model is configurable: llama-3.3-70b-versatile gives the best extraction quality;
- * on Groq's free tier its tokens-per-minute cap is low, so llama-3.1-8b-instant is a
- * reasonable fallback (`GROQ_MODEL=llama-3.1-8b-instant`).
+ * Model is configurable; use Groq's hosted openai/gpt-oss-120b by default.
  */
-export const groqModel = () => process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
+export const groqModel = () => process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 
 /** Returns a `Complete` backed by ChatGroq. The key is read server-side only. */
 export function groqComplete(): Complete {
